@@ -1,0 +1,9 @@
+﻿{
+  "id": "bob@bob.com",
+  "message": "hello world",
+  "priority": "High",
+  "receivers": [
+    "fred@fred.com",
+    "tim@tim.com"
+  ]
+}

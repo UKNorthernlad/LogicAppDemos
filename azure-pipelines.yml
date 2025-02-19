@@ -1,0 +1,22 @@
+trigger:
+  branches:
+    include:
+    - refs/heads/main
+    - refs/heads/myfeaturebranch
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: vs2017-win2016
+  steps:
+  - checkout: self
+  - task: AzureResourceManagerTemplateDeployment@3
+    displayName: 'ARM Template deployment: Resource Group scope'
+    inputs:
+      ConnectedServiceName: edd72c33-1ca1-4bd2-80ae-e51585fa3fd8
+      subscriptionName: 45b45e20-a07a-4eb1-9b8c-cd02dc18e4d3
+      resourceGroupName: Labs2
+      location: West Europe
+      csmFile: HTTP-To-CosmosDB-LogicApp/LogicApp.json
+      csmParametersFile: HTTP-To-CosmosDB-LogicApp/LogicApp.parameters.json
+...
